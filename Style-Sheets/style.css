@@ -1,0 +1,38 @@
+.main-sec {
+    height: inherit !important;
+    /* width: 80%; */
+}
+
+.bg-img {
+    width: 500px !important;
+    height: 400px !important;
+}
+
+.custom-row {
+    display: flex !important;
+    justify-content: space-around !important;
+}
+
+.img-div {
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: right;
+}
+
+.bg-color{
+    background-color: #230738;
+}
+
+.custom-btn{
+    background-color: white;
+    color: #230738;
+    font-weight: bold;
+    border: none;
+}
+
+.custom-btn:hover{
+    background-color: #230738;
+    color: white;
+    font-weight: bold;
+    border: 2px solid white;
+}
