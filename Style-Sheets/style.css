@@ -1,6 +1,13 @@
 .main-sec {
-    height: inherit !important;
+    height: 100% !important;
+    background: white;
+    display: flex;
+    align-items: center !important;
     /* width: 80%; */
+}
+
+.card-container{
+    
 }
 
 .bg-img {
@@ -17,7 +24,7 @@
 .img-div {
     /* border: 2px solid red; */
     display: flex;
-    justify-content: right;
+    justify-content: left;
 }
 
 
@@ -60,3 +67,37 @@
 .link{
     text-decoration: underline;
 }
+
+.custom-ok-button {
+    background-color: #30b8f4 !important; /* Replace #ff0000 with your desired color */
+    color: #ffffff !important; /* Optional: Change text color for better contrast */
+  }
+  
+/* 
+    Hide the original file input
+    .file-input {
+        display: none;
+    }
+
+    Custom button styling
+    .custom-file-label {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+
+    Change button color on hover
+    .custom-file-label:hover {
+        background-color: #0056b3;
+    }
+
+    Display selected file name
+    .file-name {
+        margin-left: 15px;
+        font-size: 16px;
+    } */

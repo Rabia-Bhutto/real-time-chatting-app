@@ -12,18 +12,18 @@
     <title>Chatting App</title>
 </head>
 <body class="">
-    <section class="main-sec" style="background-color: #eee;">
+    <section class="main-sec mt-5 pt-3">
         <div class="container h-100">
           <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-lg-12 col-xl-11">
-              <div class="bg-color card text-black" style="border-radius: 25px;">
+              <div class="card-container card text-black" style="border-radius: 25px;">
                 <div class="card-body p-md-5">
                   <div class="custom-row row d-flex justify-content-space-between">
                     <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
       
                       <h1 class="text-center custom-text h1 fw-bold mb-4 mx-1 mx-md-4 mt-4">Sign up</h1>
       
-                      <form class="mx-1 mx-md-4">
+                      <form class="mx-1 mx-md-4" id="signupForm">
       
                         <div class="d-flex flex-row align-items-center mb-2">
                           <i class="fas fa-user fa-lg me-3 fa-fw"></i>
@@ -58,6 +58,12 @@
       
                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                           <button  type="button" data-mdb-button-init data-mdb-ripple-init class="custom-btn btn btn-primary btn-lg w-100" id="registerBtn">Register</button>
+                        </div>
+
+                        <div class="signin-link d-flex ms-4 mb-5 mt-4 d-flex justify-content-center">
+                          <p class="signin-link-input custom-text2 fw-normal" for="form2Example3">
+                            Need an account? <a href="Pages/signin.html" class="custom-text link fw-bold">SIGNIN</a>
+                          </p>
                         </div>
       
                       </form>

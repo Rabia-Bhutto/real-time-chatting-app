@@ -7,7 +7,9 @@ import {
     updateProfile,
     signInWithEmailAndPassword,
     onAuthStateChanged,
-    sendEmailVerification
+    sendEmailVerification,
+    GoogleAuthProvider,
+    signInWithPopup
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 
 
@@ -32,4 +34,6 @@ export {
     updateProfile,
     signInWithEmailAndPassword,
     onAuthStateChanged,
-    sendEmailVerification}
+    sendEmailVerification,
+    GoogleAuthProvider,
+    signInWithPopup}
