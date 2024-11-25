@@ -82,7 +82,7 @@ import {
 
       document.getElementById("posting").addEventListener("click", function() {
         window.location.href = "posts.html";
-      });  
+      });   
   
       // Add event listener for email verification
       document.getElementById("verifyEmail").addEventListener("click", () => {
@@ -115,65 +115,10 @@ import {
   
       // Update user profile
       document.getElementById("updateProfile").addEventListener("click", function () {
-        // Swal.fire({
-        //   title: "Edit Profile",
-        //   text: "Profile Picture:"
-        //   input: "file",
-        //   text: "Username:"
-        //   input: "text",
-        //   text: "About:"
-        //   input: "text",
-        //   inputAttributes: {
-        //     autocapitalize: "off",
-        //   },
-        //   showCancelButton: true,
-        //   confirmButtonText: "Look up",
-        //   showLoaderOnConfirm: true,
-        //   preConfirm: async (login) => {
-        //     try {
-        //       const githubUrl = `https://api.github.com/users/${login}`;
-        //       const response = await fetch(githubUrl);
-        //       if (!response.ok) {
-        //         return Swal.showValidationMessage(`${JSON.stringify(await response.json())}`);
-        //       }
-        //       return response.json();
-        //     } catch (error) {
-        //       Swal.showValidationMessage(`Request failed: ${error}`);
-        //     }
-        //   },
-        //   allowOutsideClick: () => !Swal.isLoading(),
-        // }).then((result) => {
-        //   if (result.isConfirmed) {
-        //     // Update the profile with the new display name and photo URL
-        //     updateProfile(user, {
-        //       displayName: result.value.login,
-        //       photoURL: result.value.avatar_url,
-        //     })
-        //       .then(() => {
-        //         Swal.fire({
-        //           title: "Profile updated successfully!",
-        //           imageUrl: result.value.avatar_url,
-        //           imageAlt: `${result.value.login}'s avatar`,
-        //         });
-        //         console.log("Profile updated successfully");
-        //       })
-        //       .catch((error) => {
-        //         console.error("Error updating profile:", error);
-        //         Swal.fire({
-        //           icon: "error",
-        //           title: "Failed to update profile",
-        //           text: error.message,
-        //         });
-        //       });
-        //   }
-        // });
-
         Swal.fire({
           title: "Submit your details",
           html: `
           <div class="text-start"> 
-            <p class="fw-bold mb-0 file-input-label">Profile Picture</p>
-            <input type="file" id="profilePicture" class="swal2-input file-input" id="fileInput" accept="image/*">
             <p class="fw-bold mb-0">Username</p>
             <input type="text" id="username" class="swal2-input">
             <p class="fw-bold mb-0">About</p>
@@ -184,26 +129,26 @@ import {
           confirmButtonText: "Submit",
           showLoaderOnConfirm: true,
           preConfirm: async () => {
-            const profilePicture = Swal.getPopup().querySelector("#profilePicture").files[0];
+            // const profilePicture = Swal.getPopup().querySelector("#profilePicture").files[0];
             const username = Swal.getPopup().querySelector("#username").value;
             const aboutInfo = Swal.getPopup().querySelector("#aboutInfo").value;
         
-            if (!username || !aboutInfo || !profilePicture) {
-              Swal.showValidationMessage("Please fill out all fields, including a profile picture.");
+            if (!username || !aboutInfo) {
+              Swal.showValidationMessage("Please fill out all fields");
               return;
             }
         
-            // Validate the file type and size
-            if (!["image/jpeg", "image/png", "image/gif"].includes(profilePicture.type)) {
-              Swal.showValidationMessage("Please upload a valid image file (JPEG, PNG, or GIF).");
-              return;
-            }
-            if (profilePicture.size > 2 * 1024 * 1024) { // 2MB size limit
-              Swal.showValidationMessage("Profile picture must be less than 2MB.");
-              return;
-            }
+            // // Validate the file type and size
+            // if (!["image/jpeg", "image/png", "image/gif"].includes(profilePicture.type)) {
+            //   Swal.showValidationMessage("Please upload a valid image file (JPEG, PNG, or GIF).");
+            //   return;
+            // }
+            // if (profilePicture.size > 2 * 1024 * 1024) { // 2MB size limit
+            //   Swal.showValidationMessage("Profile picture must be less than 2MB.");
+            //   return;
+            // }
         
-            return { username, aboutInfo, profilePicture };
+            return { username, aboutInfo};
           },
           allowOutsideClick: () => !Swal.isLoading()
         }).then((result) => {
@@ -215,11 +160,11 @@ import {
               const updatedUserData = {
                 userName: result.value.username,
                 aboutInfo: result.value.aboutInfo,
-                profilePictureUrl: e.target.result, // Base64 image URL
+                // profilePictureUrl: e.target.result, // Base64 image URL
               };
               
               // Update the elements on your page with new data
-              document.getElementById("profilePicture").src = updatedUserData.profilePictureUrl;
+              // document.getElementById("profilePicture").src = updatedUserData.profilePictureUrl;
               document.getElementById("username").textContent = updatedUserData.userName;
               document.getElementById("aboutInfo").textContent = updatedUserData.aboutInfo;
             };
@@ -232,95 +177,27 @@ import {
     }
   })
       // Sign out
-  //     document.getElementById("signOut").addEventListener("click", () => {
-  //       console.log("hi")
-  //       signOut(auth).then(() => (location.href = "Pages.signin"));
-  //     });
-  //   } else {
-  //     // No user is signed in, redirect to login
-  //     location.href = "Pages.signin";
-  //   }
-  // });
-
-
-  // Swal.fire({
-  //   title: "Submit your details",
-  //   html: `
-  //     <div class="text-start"> 
-  //       <p class="fw-bold mb-0 file-input-label">Profile Picture</p>
-  //       <input type="file" id="profilePicture" class="swal2-input file-input" accept="image/*">
-  //       <p class="fw-bold mb-0">Username</p>
-  //       <input type="text" id="username" class="swal2-input">
-  //       <p class="fw-bold mb-0">About</p>
-  //       <textarea id="aboutInfo" class="swal2-textarea"></textarea>
-  //     </div>
-  //   `,
-  //   showCancelButton: true,
-  //   confirmButtonText: "Submit",
-  //   showLoaderOnConfirm: true,
-  //   preConfirm: async () => {
-  //     const profilePicture = Swal.getPopup().querySelector("#profilePicture").files[0];
-  //     const username = Swal.getPopup().querySelector("#username").value;
-  //     const aboutInfo = Swal.getPopup().querySelector("#aboutInfo").value;
+    //   document.getElementById("signOut").addEventListener("click", () => {
+    //     console.log("hi")
+    //     signOut(auth).then(() => (location.href = "Pages.signin"));
+    //   });
+    // else {
+    //   // No user is signed in, redirect to login
+    //   location.href = "Pages.signin";
+    // }
   
-  //     if (!username || !aboutInfo || !profilePicture) {
-  //       Swal.showValidationMessage("Please fill out all fields, including a profile picture.");
-  //       return;
-  //     }
-  
-  //     // Validate the file type and size
-  //     if (!["image/jpeg", "image/png", "image/gif"].includes(profilePicture.type)) {
-  //       Swal.showValidationMessage("Please upload a valid image file (JPEG, PNG, or GIF).");
-  //       return;
-  //     }
-  //     if (profilePicture.size > 2 * 1024 * 1024) { // 2MB size limit
-  //       Swal.showValidationMessage("Profile picture must be less than 2MB.");
-  //       return;
-  //     }
-  
-  //     return { username, aboutInfo, profilePicture };
-  //   },
-  //   allowOutsideClick: () => !Swal.isLoading()
-  // }).then((result) => {
-  //   if (result.isConfirmed) {
-  //     const reader = new FileReader();
-  
-  //     reader.onload = (e) => {
-  //       // Update the profile with new details
-  //       const updatedUserData = {
-  //         userName: result.value.username,
-  //         aboutInfo: result.value.aboutInfo,
-  //         profilePictureUrl: e.target.result, // Base64 image URL
-  //       };
-        
-  //       // Update the elements on your page with new data
-  //       document.getElementById("profilePictureDisplay").src = updatedUserData.profilePictureUrl;
-  //       document.getElementById("usernameDisplay").textContent = updatedUserData.userName;
-  //       document.getElementById("aboutInfoDisplay").textContent = updatedUserData.aboutInfo;
-  //     };
-  
-  //     reader.readAsDataURL(result.value.profilePicture);
-  //   }
-  // });
-
- 
- 
-  
-
-
-
-  // STYLING ON THE FILE INPUT BUTTON 
-
-  // const fileInput = document.getElementById('fileInput');
-  // const fileNameDisplay = document.querySelector('.file-name');
-
-  // // Update file name display on file selection
-  // fileInput.addEventListener('change', (event) => {
-  //     const fileName = event.target.files[0] ? event.target.files[0].name : 'No file chosen';
-  //     fileNameDisplay.textContent = fileName;
-  // });
-
-  // // Trigger file input when clicking the custom button
-  // document.querySelector('.custom-file-label').addEventListener('click', () => {
-  //     fileInput.click();
-  // });
+    // Sign out functionality
+    let signOutBtn = document.getElementById("signOut");
+    
+setTimeout(signOutBtn.addEventListener("click", () => {
+  console.log("Sign-out initiated...");
+  signOut(auth)
+    .then(() => {
+      console.log("Sign-out successful.");
+      // Redirect to the sign-in page after sign-out
+      location.href = "Pages/signin.html"; // Adjust path as needed
+    })
+    .catch((error) => {
+      console.error("Error signing out:", error);
+    });
+}), 5000);
