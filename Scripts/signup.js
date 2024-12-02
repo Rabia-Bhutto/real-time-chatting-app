@@ -9,6 +9,7 @@ const Pages = {
 };
 
 let name = document.getElementById("signupName");
+// console.log(name.value)
 let email = document.getElementById("signupEmail");
 let password = document.getElementById("signupPassword");
 let regbtn = document.getElementById("registerBtn");

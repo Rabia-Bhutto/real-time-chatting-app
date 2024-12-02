@@ -157,7 +157,7 @@ addingPost.addEventListener("click", async () => {
 
    
 
-    const docRef = await addDoc(collection(db, "users"), {
+    const docRef = await addDoc(collection(db, "posts"), {
       title: titleValue,
       descript: descriptValue,
       // Other fields if needed
